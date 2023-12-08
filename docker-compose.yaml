@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  appointments:
+    image: usmans58/appointments:1
+    ports:
+      - "7070:7070"
+    networks:
+      - mynetwork
+
+  doctors:
+    image: usmans58/doctors:1
+    ports:
+      - "9090:9090"
+    networks:
+      - mynetwork
+
+  frontend:
+    image: usmans58/frontend:1
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: example_root_password
+      MYSQL_DATABASE: example_database
+      MYSQL_USER: example_user
+      MYSQL_PASSWORD: example_password
+    ports:
+      - "3306:3306"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
