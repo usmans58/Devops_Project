@@ -4,7 +4,9 @@ app = Flask(__name__)
 doctors = [
   { 'id': "1",'firstName': "Muhammad Ali", 'lastName': "Kahoot", 'speciality':"DevOps"  },
   { 'id': "2",'firstName': "Good", 'lastName': "Doctor",'speciality':"Test"  },
-  { 'id': "3",'firstName': "Usman", 'lastName': "Siddiqui",'speciality':"Pediatrics"  }
+  { 'id': "3",'firstName': "Usman", 'lastName': "Siddiqui",'speciality':"Pediatrics"  },
+  { 'id': "4",'firstName': "Umar", 'lastName': "Farooq",'speciality':"Surgeon"  }
+
 ]
 
 @app.route('/hello')
