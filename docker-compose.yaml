@@ -20,12 +20,11 @@ services:
     ports:
       - "3000:3000"
     environment:
-      DOCTORS_SERVICE_URL: 192.168.18.48:9090
-      APPOINTMENTS_SERVICE_URL: 192.168.18.48:7070
+      DOCTORS_SERVICE_URL: 192.168.100.149:9090
+      APPOINTMENTS_SERVICE_URL: 192.168.100.149:7070
     networks:
       - mynetwork
 
-# Uncomment the following block if you want to include a database service
 # db:
 #   image: mysql:latest
 #   environment:
