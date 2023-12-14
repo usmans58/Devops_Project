@@ -27,3 +27,16 @@ jobs:
           docker push usmans58/doctors:${{ github.sha }}
         env:
           DOCKER_BUILDKIT: 1
+      - name: Update docker-compose file
+        run: |
+          sed -i "s/usmans58\/appointments:1/usmans58\/appointments:${{ github.sha }}/g" ../docker-compose.yaml
+
+      - name: Commit and push changes
+        if: github.event_name == 'push'
+        run: |
+          git config user.email "usmansiddiqui51@gmail.com"
+          git config user.name "usmans58"
+          git add ../docker-compose.yaml
+          git commit -m "Update docker-compose with built image tag of doctors microservice"
+          git push
+          
