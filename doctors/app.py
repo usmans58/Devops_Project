@@ -6,8 +6,8 @@ doctors = [
   { 'id': "2",'firstName': "Good", 'lastName': "Doctor",'speciality':"Test"  },
   { 'id': "3",'firstName': "Usman", 'lastName': "Siddiqui",'speciality':"Pediatrics"  },
   { 'id': "4",'firstName': "Umar", 'lastName': "Farooq",'speciality':"Surgeon"  },
-  { 'id': "5",'firstName': "Shoaib", 'lastName': "Ali",'speciality':"Neurology"  }
-#  { 'id': "6",'firstName': "Ahmed", 'lastName': "Ali",'speciality':"Programming"  }
+  { 'id': "5",'firstName': "Shoaib", 'lastName': "Ali",'speciality':"Neurology"  },
+  { 'id': "6",'firstName': "Ahmed", 'lastName': "Ali",'speciality':"Programming"  }
 
 
 ]
