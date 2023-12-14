@@ -1,10 +1,14 @@
 name: Update Docker Compose
 
+
 on:
   push:
     branches:
       - main
-
+  workflow_run:
+    workflows: ["Doctors Microservice CI/CD", "Appointments Microservice CI/CD", "Frontend Microservice CI/CD"]
+    types:
+      - completed
 jobs:
   update-docker-compose:
     runs-on: ubuntu-latest
