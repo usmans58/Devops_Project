@@ -7,7 +7,7 @@ appointments = [
   { 'id': "3",'doctor': "2", 'date': "22 Nov 2023", 'rating':"Good"  },
   { 'id': "4",'doctor': "1", 'date': "22 Nov 2023", 'rating':"Bad"  },
   { 'id': "5",'doctor': "2", 'date': "22 Nov 2023", 'rating':"Good"  },
-  { 'id': "6",'doctor': "2", 'date': "23 Nov 2023", 'rating':"Good"  }
+  #{ 'id': "6",'doctor': "2", 'date': "23 Nov 2023", 'rating':"Good"  }
 ]
 
 @app.route('/hello')
