@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.email "usmansiddiqui51@gmail.com"
           git config user.name "usmans58"
-          git add ../docker-compose.yaml
+          git add docker-compose.yaml
           git commit -m "Update docker-compose with built image tag of doctors microservice"
           git push
           
