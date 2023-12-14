@@ -29,7 +29,7 @@ jobs:
           DOCKER_BUILDKIT: 1
       - name: Update docker-compose file
         run: |
-          sed -i "s/usmans58\/appointments:1/usmans58\/appointments:${{ github.sha }}/g" ../docker-compose.yaml
+          sed -i "s/usmans58\/appointments:1/usmans58\/appointments:${{ github.sha }}/g" docker-compose.yaml
 
       - name: Commit and push changes
         if: github.event_name == 'push'
