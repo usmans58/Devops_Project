@@ -2,7 +2,7 @@ version: '3'
 
 services:
   appointments:
-    image: usmans58/appointments:1a53fec58a5d4dab6dd95fc3928867f52a392af4
+    image: usmans58/appointments:0bb9722bb3f5139511c36c06ee5320fa24d653e1a53fec58a5d4dab6dd95fc3928867f52a392af4
     ports:
       - "7070:7070"
     networks:
