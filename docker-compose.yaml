@@ -16,7 +16,7 @@ services:
       - mynetwork
 
   frontend:
-    image: usmans58/frontend:1
+    image: usmans58/frontend:96b5c80a544c9c20b2303a0c8c6c7312bd1cfedc
     ports:
       - "3000:3000"
     environment:
