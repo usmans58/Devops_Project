@@ -2,21 +2,21 @@ version: '3'
 
 services:
   appointments:
-    image: usmans58/appointments:0bb9722bb3f5139511c36c06ee5320fa24d653e1a53fec58a5d4dab6dd95fc3928867f52a392af4
+    image: usmans58/appointments:1
     ports:
       - "7070:7070"
     networks:
       - mynetwork
 
   doctors:
-    image: usmans58/doctors:b1a39bef9f8240d4b2d5a2a3cbeb508acae4a947
+    image: usmans58/doctors:1
     ports:
       - "9090:9090"
     networks:
       - mynetwork
 
   frontend:
-    image: usmans58/frontend:96b5c80a544c9c20b2303a0c8c6c7312bd1cfedc
+    image: usmans58/frontend:1s
     ports:
       - "3000:3000"
     environment:
