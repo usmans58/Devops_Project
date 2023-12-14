@@ -11,13 +11,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Update docker-compose file
         run: |
           sed -i "s/usmans58\/appointments:1/usmans58\/appointments:${{ github.sha }}/g" docker-compose.yaml
-          sed -i "s/usmans58\/doctors:1/usmans58\/doctors:${{ github.sha }}/g" doctors/docker-compose.yaml
-          sed -i "s/usmans58\/frontend:1/usmans58\/frontend:${{ github.sha }}/g" frontend/docker-compose.yaml
+          sed -i "s/usmans58\/doctors:1/usmans58\/doctors:${{ github.sha }}/g" docker-compose.yaml
+          sed -i "s/usmans58\/frontend:1/usmans58\/frontend:${{ github.sha }}/g" docker-compose.yaml
 
       - name: Commit and push changes
         run: |
