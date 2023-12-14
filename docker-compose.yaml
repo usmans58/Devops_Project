@@ -24,18 +24,15 @@ services:
       APPOINTMENTS_SERVICE_URL: 192.168.18.48:7070
     networks:
       - mynetwork
+  mysql:
+      image: usmans58/db:1
+      ports:
+        - "3306:3306"
+      environment:
+       - .env
+      networks:
+        - mynetwork
 
-# db:
-#   image: mysql:latest
-#   environment:
-#     MYSQL_ROOT_PASSWORD: example_root_password
-#     MYSQL_DATABASE: example_database
-#     MYSQL_USER: example_user
-#     MYSQL_PASSWORD: example_password
-#   ports:
-#     - "3306:3306"
-#   networks:
-#     - mynetwork
 
 networks:
   mynetwork:
