@@ -2,14 +2,14 @@ version: '3'
 
 services:
   appointments:
-    image: usmans58/appointments:1
+    image: usmans58/appointments:500674880cc050ecb1968246da0050b1ca61e78e
     ports:
       - "7070:7070"
     networks:
       - mynetwork
 
   doctors:
-    image: usmans58/doctors:1
+    image: usmans58/doctors:500674880cc050ecb1968246da0050b1ca61e78e
     ports:
       - "9090:9090"
     networks:
