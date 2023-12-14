@@ -4,9 +4,13 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - 'appointments/**'
   push:
     branches:
       - main
+    paths:
+      - 'appointments/**'
 
 jobs:
   build-appointments:

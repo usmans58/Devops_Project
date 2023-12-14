@@ -4,9 +4,13 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - doctors/**
   push:
     branches:
       - main
+    paths:
+      - doctors/**
 
 jobs:
   build-doctors:
