@@ -1,0 +1,28 @@
+name: Update Docker Compose
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-docker-compose:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update docker-compose file
+        run: |
+          sed -i "s/usmans58\/appointments:1/usmans58\/appointments:${{ github.sha }}/g" docker-compose.yaml
+          sed -i "s/usmans58\/doctors:1/usmans58\/doctors:${{ github.sha }}/g" doctors/docker-compose.yaml
+          sed -i "s/usmans58\/frontend:1/usmans58\/frontend:${{ github.sha }}/g" frontend/docker-compose.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config user.email "usmansiddiqui51@gmail.com"
+          git config user.name "usmans58"
+          git add docker-compose.yaml doctors/docker-compose.yaml frontend/docker-compose.yaml
+          git commit -m "Update docker-compose with built image tags"
+          git push https://${{ secrets.DEVOPS_PROJECT }}@github.com/usmans58/Devops_Project.git HEAD:main
