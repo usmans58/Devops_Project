@@ -38,5 +38,6 @@ jobs:
           git config user.name "usmans58"
           git add docker-compose.yaml
           git commit -m "Update docker-compose with built image tag of doctors microservice"
-          git push
+          git push https://$Devops_Project@github.com/usmans58/Devops_Project.git HEAD:main
+
           
