@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - 'appointments/**'
+      - "appointments/**"
   push:
     branches:
       - main
     paths:
-      - 'appointments/**'
+      - "appointments/**"
 
 jobs:
   build-appointments:
@@ -28,3 +28,13 @@ jobs:
         env:
           DOCKER_BUILDKIT: 1
 
+      - name: Update docker-compose file
+        run: |
+          # Replace the existing tag with the built one
+          sed -i "s/usmans58\/appointments:1/usmans58\/appointments:${{ github.sha }}/g" ../docker-compose.yaml
+
+          # Optionally, commit and push the changes
+          git add docker-compose.yaml
+          git commit -m "Update docker-compose with built image tag"
+          git push origin main
+          
