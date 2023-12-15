@@ -28,9 +28,6 @@ appointments = [
 def hello():
   greeting = "Hello world!"
   return greeting
-
-
-
 @app.route('/appointments', methods=["GET"])
 def getAppointments():
   return jsonify(appointments)
