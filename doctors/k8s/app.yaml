@@ -1,0 +1,65 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: doctors-configmap
+data:
+  details.txt: |
+    My Name is Usman Siddiqui. I am a student of FAST NUCES. I am currently in my 7th semester. I am doing BS in Computer Science. I have keen interest in DevOps. 
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doctors-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doctors
+  template:
+    metadata:
+      labels:
+        app: doctors
+    spec:
+      containers:
+      - name: doctors
+        image: usmans58/doctors:f9c2b9cda746bce49ccaf832cdaaaa97e24c591e
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - name: doctors-config-volume
+          mountPath: /user
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 9090
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 9090
+      volumes:
+      - name: doctors-config-volume
+        configMap:
+          name: doctors-configmap
+        
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: doctors-service
+spec:
+  selector:
+    app: doctors
+  ports:
+    - protocol: TCP
+      port: 9090
+      targetPort: 9090
