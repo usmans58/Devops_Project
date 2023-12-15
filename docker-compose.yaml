@@ -9,7 +9,7 @@ services:
       - mynetwork
 
   doctors:
-    image: usmans58/doctors:17e7c2b67c36bddc03f07b98f4d7a61940b1802ec0c144db030e645d8513766d277407056aba664
+    image: usmans58/doctors:0dde3b85e946a53237f9474274bf84258e1c58f6c0c144db030e645d8513766d277407056aba664
     ports:
       - "9090:9090"
     networks:
