@@ -25,13 +25,11 @@ jobs:
           DOCKER_BUILDKIT=1 docker build -t usmans58/doctors:${{ github.sha }} .
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
           docker push usmans58/doctors:${{ github.sha }}
-        env:
-          DOCKER_BUILDKIT: 1
 
       - name: Update docker-compose file
         run: |
           # Replace entire existing image tag with the full commit SHA
-          sed -i "s/usmans58\/doctors:[0-9a-f]\{40\}/usmans58\/doctors:${{ github.sha }}/g" docker-compose.yaml
+          sed -i 's/usmans58\/doctors:[0-9a-f]\{40\}/usmans58\/doctors:${{ github.sha }}/' docker-compose.yaml
 
       - name: Commit and push changes
         if: github.event_name == 'push'

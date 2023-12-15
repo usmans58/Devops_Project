@@ -9,9 +9,6 @@ doctors = [
   { 'id': "5",'firstName': "Shoaib", 'lastName': "Ali",'speciality':"Neurology"  },
   { 'id': "6",'firstName': "Ahmed", 'lastName': "Ali",'speciality':"Programming"  }
 ]
-
-
-
 @app.route('/hello')
 def hello():
   greeting = "Hello world!!!"
