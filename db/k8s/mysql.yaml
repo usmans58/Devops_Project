@@ -1,4 +1,3 @@
-# db/k8s/mysql.yaml
 
 apiVersion: v1
 kind: Secret
