@@ -24,9 +24,6 @@ appointments = [
   { 'id': "20",'doctor': "5", 'date': "22 Nov 2023", 'rating':"Bad"  },
   { 'id': "21",'doctor': "6", 'date': "22 Nov 2023", 'rating':"Good"  }
 ]
-
-
-
 @app.route('/hello')
 def hello():
   greeting = "Hello world!"
