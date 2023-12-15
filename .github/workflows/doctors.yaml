@@ -22,14 +22,13 @@ jobs:
       - name: Build and push Doctors microservice
         run: |
           cd doctors
-          DOCKER_BUILDKIT=1 docker build -t usmans58/doctors:${{ github.sha }} .
+          docker build -t usmans58/doctors:${{ github.sha }} .
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
           docker push usmans58/doctors:${{ github.sha }}
-
+          
       - name: Update docker-compose file
         run: |
-          # Replace entire existing image tag with the full commit SHA
-          sed -i 's/usmans58\/doctors:[0-9a-f]\{40\}/usmans58\/doctors:${{ github.sha }}/' docker-compose.yaml
+          sed -i "s|usmans58/doctors:[0-9a-f]\{40\}|usmans58/doctors:${{ github.sha }}|g; s|usmans58/doctors:1|usmans58/doctors:${{ github.sha }}|g" docker-compose.yaml
 
       - name: Commit and push changes
         if: github.event_name == 'push'
