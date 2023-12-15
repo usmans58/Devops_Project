@@ -14,10 +14,6 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html'); // Adjust the path to your HTML file
 });
 
-
-
-
-
 app.get('/hello', (req, res) => {
   res.send('Hello world\n');
 });
